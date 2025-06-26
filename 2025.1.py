@@ -73,7 +73,7 @@ print(f'{xm = :.3f} Ohm')
 np.seterr('ignore')
 v = 380
 ns = 1800
-nr = np.linspace(-200, ns+200, 500)
+nr = np.linspace(-200, ns+100, 500)
 s = (ns - nr) / ns
 rconv = r2 * (1-s) / s
 
