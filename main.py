@@ -105,6 +105,9 @@ ws = ns*2*np.pi/60
 pef = 3 * abs(i2)**2 * r2/s
 tind = pef / ws
 
+wr = nr * 2*np.pi/60
+teixo = tind - prot/ws * wr/ws
+
 carga = pd.read_csv('ensaio_carga.csv', comment='#')
 
 carga['teixo'] = carga['F'] * 9.8 * .278
@@ -122,6 +125,7 @@ plt.axvline(ns, color='black')
 
 plt.figure(2)
 plt.plot(nr, tind)
+plt.plot(nr, teixo)
 plt.plot(carga['nr'], carga['teixo'], marker='*', linestyle='')
 plt.ylabel('nr')
 plt.ylabel('tind')
@@ -130,7 +134,6 @@ plt.axvline(color='black')
 plt.axhline(color='black')
 plt.axvline(ns, color='black')
 
-wr = nr * 2*np.pi/60
 pconv = tind * wr
 plt.figure(3)
 plt.plot(nr, pconv)
